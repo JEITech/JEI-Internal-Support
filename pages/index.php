@@ -58,5 +58,6 @@ print $selected_page->getBodyWithImages();
 </div>
 
 <?php
-require(CLIENTINC_DIR.'footer.inc.php');
+
+//require(CLIENTINC_DIR.'footer.inc.php');
 ?>

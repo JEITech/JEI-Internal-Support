@@ -287,7 +287,7 @@ h2, .subject {
   background-color: #0299d2;
 }
 body {
-
+  background: url('../images/page_bg.png') top left repeat-x #c8c8c8;
 }
 #container {
   background: #fff;
@@ -405,7 +405,7 @@ body {
   margin: 10px 0 0 0;
 }
 #footer #poweredBy {
-  display: none;
+  display: block;
   width: 126px;
   height: 23px;
   outline: none;

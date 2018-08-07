@@ -153,7 +153,7 @@
       filenode
           .append($('<div class="filetype"></div>').addClass())
           .append($('<img class="preview" />'))
-          .append($('<span class="filename ltr"></div>')
+          .append($('<span class="filename ltr filedropfile"></div>')
             .append($('<span class="filesize"></span>').text(
               this.fileSize(parseInt(file.size))
             ))
@@ -172,7 +172,7 @@
           .append($('<input type="hidden"/>').attr('name', this.options.name)
             .val(file.id))
       if (this.options.deletable) {
-        filenode.prepend($('<span><i class="icon-trash"></i></span>')
+        filenode.prepend($('<span><i class="fa fa-trash"></i></span>')
           .addClass('trash pull-right')
           .click($.proxy(this.deleteNode, this, filenode))
         );

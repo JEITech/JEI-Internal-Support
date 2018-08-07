@@ -3,12 +3,9 @@
     // space below.
     // XXX: Would be nice to handle the decoration with a CSS class
     ?>
-    <tr><td colspan="2"><hr />
-    <div class="form-header" style="margin-bottom:0.5em">
+
     <h3><?php echo Format::htmlchars($form->getTitle()); ?></h3>
-    <div><?php echo Format::display($form->getInstructions()); ?></div>
-    </div>
-    </td></tr>
+    <p><?php echo Format::display($form->getInstructions()); ?></p>
     <?php
     // Form fields, each with corresponding errors follows. Fields marked
     // 'private' are not included in the output for clients
@@ -22,33 +19,30 @@
             continue;
         }
         ?>
-        <tr>
-            <td colspan="2" style="padding-top:10px;">
+		<div class="form-group <?php if ($field->isRequiredForUsers()) echo 'required'; ?>">
             <?php if (!$field->isBlockLevel()) { ?>
-                <label for="<?php echo $field->getFormName(); ?>"><span class="<?php
-                    if ($field->isRequiredForUsers()) echo 'required'; ?>">
+                <label for="<?php echo $field->getFormName(); ?>">
                 <?php echo Format::htmlchars($field->getLocal('label')); ?>
             <?php if ($field->isRequiredForUsers()) { ?>
                 <span class="error">*</span>
             <?php }
-            ?></span><?php
+            ?><?php
                 if ($field->get('hint')) { ?>
                     <br /><em style="color:gray;display:inline-block"><?php
                         echo Format::viewableImages($field->getLocal('hint')); ?></em>
                 <?php
                 } ?>
-            <br/>
+            </label>
             <?php
             }
             $field->render(array('client'=>true));
-            ?></label><?php
+            ?><?php
             foreach ($field->errors() as $e) { ?>
                 <div class="error"><?php echo $e; ?></div>
             <?php }
             $field->renderExtras(array('client'=>true));
             ?>
-            </td>
-        </tr>
+		</div>
         <?php
     }
 ?>
